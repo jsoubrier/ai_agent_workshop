@@ -73,7 +73,10 @@ fails, look there first.
   command allowed to hold a chromosome in memory.
 - Read from a file argument or stdin (`-` means stdin).
 - Errors go to stderr, never stdout — stdout is data and gets piped.
-- Exit codes: `0` success, `1` bad input data, `2` usage error.
+- Exit codes: `0` success, `1` every error — bad input data and usage errors alike.
+  `2` is never returned. Real bedtools exits `1` for usage errors too and the oracle
+  wins, so the older `0`/`1`/`2` scheme this file used to mandate is gone; see
+  `SPEC.md` §5 and §9.
 - No third-party runtime dependencies. Standard library only.
 
 ## Commits and PRs
